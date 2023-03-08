@@ -1,6 +1,7 @@
 # Ecommerce-food-order-app :shopping_cart::bento::motor_scooter:
 
 This React ecommerce page allows users to add and manage items in their cart. Several React hooks and tools were used in this project: useState, useContext, useReducer, useEffect, useRef and portals. <br />
+This app is connected to a database: meal items are fetched from Firebase. <br />
 I used CSS Modules for each component to ensure CSS classes don't clash.
 
 ## Preview
