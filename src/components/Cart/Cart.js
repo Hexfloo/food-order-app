@@ -84,7 +84,14 @@ const Cart = (props) => {
   );
 
   const didSubmitModalContent = (
-    <h3 style={{ textAlign: "center" }}>Order sent successfully!</h3>
+    <Fragment>
+      <h3 style={{ textAlign: "center" }}>Order sent successfully!</h3>
+      <div className={classes.actions}>
+        <button className={classes["button--alt"]} onClick={props.onClose}>
+          Close
+        </button>
+      </div>
+    </Fragment>
   );
 
   return (
