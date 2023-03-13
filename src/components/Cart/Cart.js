@@ -23,6 +23,17 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
+  const submitOrderHandler = (userData) => {
+    fetch(
+      "https://react-meals-hexfloo-default-rtdb.firebaseio.com/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({ user: userData, orderedItems: cartCtx.items }),
+      }
+    );
+    console.log("Order sent to server");
+  }; // Sending the entered information from the order from CheckoutForm to the server
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -45,7 +56,9 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {isCheckout && <CheckoutForm onCancel={props.onClose} />}
+      {isCheckout && (
+        <CheckoutForm onCancel={props.onClose} onConfirm={submitOrderHandler} />
+      )}
       {!isCheckout && (
         <div className={classes.actions}>
           <button className={classes["button--alt"]} onClick={props.onClose}>

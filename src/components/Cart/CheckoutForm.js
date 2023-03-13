@@ -61,6 +61,13 @@ const CheckoutForm = (props) => {
     resetStreetValue();
     resetPostalValue();
     resetCityValue();
+
+    props.onConfirm({
+      name: nameValue,
+      street: streetValue,
+      postalCode: postalValue,
+      city: cityValue,
+    });
   };
 
   /* Whole form validation */
@@ -69,9 +76,23 @@ const CheckoutForm = (props) => {
     isFormValid = true;
   }
 
+  /* Styling regarding input validity */
+  const nameColtrolClasses = `${classes.control} ${
+    !nameHasError ? "" : classes.invalid
+  }`;
+  const streetColtrolClasses = `${classes.control} ${
+    !streetHasError ? "" : classes.invalid
+  }`;
+  const postalColtrolClasses = `${classes.control} ${
+    !postalHasError ? "" : classes.invalid
+  }`;
+  const cityColtrolClasses = `${classes.control} ${
+    !cityHasError ? "" : classes.invalid
+  }`;
+
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
-      <div className={classes.control}>
+      <div className={`${nameColtrolClasses}`}>
         <label htmlFor="name">Your Name</label>
         <input
           id="name"
@@ -82,7 +103,7 @@ const CheckoutForm = (props) => {
         />
         {nameHasError && <p>Please use valid name</p>}
       </div>
-      <div className={classes.control}>
+      <div className={`${streetColtrolClasses}`}>
         <label htmlFor="street">Street Name</label>
         <input
           id="street"
@@ -93,7 +114,7 @@ const CheckoutForm = (props) => {
         />
         {streetHasError && <p>Please use valid street</p>}
       </div>
-      <div className={classes.control}>
+      <div className={`${postalColtrolClasses}`}>
         <label htmlFor="postal">Postal Code</label>
         <input
           id="postal"
@@ -104,7 +125,7 @@ const CheckoutForm = (props) => {
         />
         {postalHasError && <p>Please use valid postal code</p>}
       </div>
-      <div className={classes.control}>
+      <div className={`${cityColtrolClasses}`}>
         <label htmlFor="city">City</label>
         <input
           id="city"
