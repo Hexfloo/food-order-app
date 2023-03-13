@@ -36,6 +36,7 @@ const Cart = (props) => {
     );
     setIsSubmitting(false);
     setDidSubmit(true);
+    cartCtx.clearCart();
     console.log("Order sent to server");
   }; // Sending the entered information from the order from CheckoutForm to the server
 
