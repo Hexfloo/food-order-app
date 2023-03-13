@@ -67,7 +67,7 @@ const CheckoutForm = (props) => {
       street: streetValue,
       postalCode: postalValue,
       city: cityValue,
-    });
+    }); // Sending user data to the server
   };
 
   /* Whole form validation */
