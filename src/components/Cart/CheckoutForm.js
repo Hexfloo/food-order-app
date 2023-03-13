@@ -4,7 +4,7 @@ import useInput from "../../hooks/use-input";
 const CheckoutForm = (props) => {
   /* Validation functions for form inputs hook */
   const textValidationFn = (value) => {
-    return value.trim() !== "";
+    return value.trim() !== ""; // Checking if not empty
   };
   const postalCodeValidationFn = (value) => {
     return value.trim().length > 0 && !isNaN(value);
